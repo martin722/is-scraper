@@ -1,0 +1,262 @@
+
+{
+    "Český jazyk a literatura": [
+        {
+            "nazev": "Reprodukce textu",
+            "znamka": 1.5,
+            "vaha": "10"
+        },
+        {
+            "nazev": "Diktát",
+            "znamka": 3.0,
+            "vaha": "50"
+        },
+        {
+            "nazev": "Středověk",
+            "znamka": 2.0,
+            "vaha": "50"
+        },
+        {
+            "nazev": "Vypravování",
+            "znamka": 3.0,
+            "vaha": "80"
+        }
+    ],
+    "Anglický jazyk": [
+        {
+            "nazev": "Present Perfect since/for",
+            "znamka": 1.0,
+            "vaha": "30"
+        },
+        {
+            "nazev": "Dictation",
+            "znamka": 2.0,
+            "vaha": "15"
+        },
+        {
+            "nazev": "Present Perf vs Past Simp",
+            "znamka": 2.0,
+            "vaha": "30"
+        },
+        {
+            "nazev": "A movie review",
+            "znamka": 1.0,
+            "vaha": "50"
+        },
+        {
+            "nazev": "Dictation",
+            "znamka": 2.0,
+            "vaha": "15"
+        },
+        {
+            "nazev": "A story writing",
+            "znamka": 1.5,
+            "vaha": "50"
+        }
+    ],
+    "Základy společenských věd": [
+        {
+            "nazev": "Prověrka",
+            "znamka": 1.0,
+            "vaha": "30"
+        },
+        {
+            "nazev": "Prezentace",
+            "znamka": 1.0,
+            "vaha": "25"
+        }
+    ],
+    "Matematika": [
+        {
+            "nazev": "soustava rovnic-oprava",
+            "znamka": 1.5,
+            "vaha": "25"
+        },
+        {
+            "nazev": "soustava1",
+            "znamka": 2.0,
+            "vaha": "25"
+        },
+        {
+            "nazev": "soustava2",
+            "znamka": 3.0,
+            "vaha": "25"
+        },
+        {
+            "nazev": "test",
+            "znamka": 2.0,
+            "vaha": "30"
+        }
+    ],
+    "Fyzika": [
+        {
+            "nazev": "tření",
+            "znamka": 3.0,
+            "vaha": "40"
+        },
+        {
+            "nazev": "hybnost, impuls",
+            "znamka": 3.0,
+            "vaha": "40"
+        },
+        {
+            "nazev": "tření",
+            "znamka": 1.0,
+            "vaha": "25"
+        },
+        {
+            "nazev": "Newtonovy zákony",
+            "znamka": 3.0,
+            "vaha": "50"
+        },
+        {
+            "nazev": "Newtonovy zákony",
+            "znamka": 2.0,
+            "vaha": "30"
+        }
+    ],
+    "Tělesná výchova": [
+        {
+            "nazev": "Gymnastika",
+            "znamka": 1.0,
+            "vaha": "30"
+        },
+        {
+            "nazev": "Šplh na laně/tyči",
+            "znamka": 1.0,
+            "vaha": "40"
+        },
+        {
+            "nazev": "Volejbal",
+            "znamka": 1.0,
+            "vaha": "30"
+        },
+        {
+            "nazev": "Fotbal",
+            "znamka": 1.0,
+            "vaha": "30"
+        }
+    ],
+    "Počítačová grafika a multimédia": [
+        {
+            "nazev": "plakát 2",
+            "znamka": 2.5,
+            "vaha": "30"
+        },
+        {
+            "nazev": "tvorba tvarů",
+            "znamka": 1.0,
+            "vaha": "30"
+        },
+        {
+            "nazev": "plakát 1",
+            "znamka": 2.0,
+            "vaha": "90"
+        },
+        {
+            "nazev": "zarovnání objektů",
+            "znamka": 2.0,
+            "vaha": "30"
+        }
+    ],
+    "Praktikum z informatiky": [
+        {
+            "nazev": "Skládání počítačů",
+            "znamka": 1.0,
+            "vaha": "30"
+        },
+        {
+            "nazev": "Konfigurace OS",
+            "znamka": 1.0,
+            "vaha": "30"
+        },
+        {
+            "nazev": "Diagnostika počítačů",
+            "znamka": 1.0,
+            "vaha": "30"
+        }
+    ],
+    "Technické vybavení": [
+        {
+            "nazev": "Měření rezistorů",
+            "znamka": 2.0,
+            "vaha": "30"
+        },
+        {
+            "nazev": "Test - TinkerCAD",
+            "znamka": 1.0,
+            "vaha": "20"
+        },
+        {
+            "nazev": "Schéma zapojení",
+            "znamka": 1.0,
+            "vaha": "10"
+        },
+        {
+            "nazev": "Prezentace architektury",
+            "znamka": 1.0,
+            "vaha": "20"
+        },
+        {
+            "nazev": "Test 16.2",
+            "znamka": 2.0,
+            "vaha": "30"
+        },
+        {
+            "nazev": "Tabule",
+            "znamka": 1.0,
+            "vaha": "20"
+        },
+        {
+            "nazev": "Rychlotest 1",
+            "znamka": 3.0,
+            "vaha": "15"
+        }
+    ],
+    "Webové stránky": [
+        {
+            "nazev": "Funkce a procedury",
+            "znamka": 1.0,
+            "vaha": "40"
+        },
+        {
+            "nazev": "PHP Cykly",
+            "znamka": 1.5,
+            "vaha": "30"
+        }
+    ],
+    "Základy ekologie a chemie": [
+        {
+            "nazev": "Chráněnná území",
+            "znamka": 1.0,
+            "vaha": "40"
+        },
+        {
+            "nazev": "Typy krajiny, ochrana ŽP",
+            "znamka": 1.5,
+            "vaha": "50"
+        },
+        {
+            "nazev": "Opakování Anorganické ch.",
+            "znamka": 1.0,
+            "vaha": "80"
+        },
+        {
+            "nazev": "Opakování názvosloví",
+            "znamka": 2.0,
+            "vaha": "50"
+        }
+    ],
+    "Software a IT bezpečnost": [
+        {
+            "nazev": "test csirt",
+            "znamka": 1.0,
+            "vaha": "30"
+        },
+        {
+            "nazev": "Podniková informatika a K",
+            "znamka": 1.0,
+            "vaha": "30"
+        }
+    ]
+}

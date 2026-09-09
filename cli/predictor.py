@@ -23,7 +23,7 @@ with open('core/subjects.json', 'r', encoding='utf-8') as file:
     data = json.load(file)
 
 subjects = []
-
+i: int = 0
 
 for key in data:
     subjects.append(key)
@@ -42,11 +42,13 @@ marksFromSelectedSubject = []
 marksFromSelectedSubject.append("add new")
 marksFromSelectedSubject.append("DONE")
 
+for subject in data:
+    if subject == answerSubject['subject']:
+        for mark in data[answerSubject['subject']]:
+            marksFromSelectedSubject.append(mark)
+
 def renderList(marksFromSelectedSubject):
-    for subject in data:
-        if subject == answerSubject['subject']:
-            for mark in data[answerSubject['subject']]:
-                marksFromSelectedSubject.append(mark)
+
 
 
     questions = [
@@ -62,17 +64,18 @@ def renderList(marksFromSelectedSubject):
 
 while True:
     answerMark = renderList(marksFromSelectedSubject)
-    if answerMark["mark"] != "DONE":
+    if answerMark["mark"] == "DONE":
+        exit()
+        print(answerSubject['subject'])
+        pprint.pprint(answerMark['mark'])
 
 
-        i: int = 0
-        newMark = []
-        if answerMark["mark"] == 'add new':
-            nazev = f"added{i}"
-            i: int = i + 1
-            znamka: float = float(input("Znamka: "))
-            vaha: int = int(input("Vaha: "))
-
+    if answerMark["mark"] == 'add new':
+        nazev = f"added{i}"
+        i: int = i + 1
+        znamka: float = float(input("Znamka: "))
+        vaha: int = int(input("Vaha: "))
+    
         markList = {
             'nazev': nazev,
             'znamka': znamka,
@@ -81,10 +84,5 @@ while True:
 
         marksFromSelectedSubject.append(markList)
 
-        answerMark = renderList(marksFromSelectedSubject)
-    else:
-        exit()
-        print(answerSubject['subject'])
-        pprint.pprint(answerMark['mark'])
 
 

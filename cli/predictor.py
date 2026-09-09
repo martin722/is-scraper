@@ -7,7 +7,6 @@ import requests
 import getpass
 
 
-
 ##momentalne nemam znamky fetchujeme prefiled json
 #user = input('Username: ')
 
@@ -20,7 +19,7 @@ import getpass
 
 #################################################
 
-with open('core/subjects.json', 'r') as file:
+with open('core/subjects.json', 'r', encoding='utf-8') as file:
     data = json.load(file)
 
 subjects = []

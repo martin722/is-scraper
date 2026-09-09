@@ -39,22 +39,52 @@ questions = [
 answerSubject = inquirer.prompt(questions)
 
 marksFromSelectedSubject = []
+marksFromSelectedSubject.append("add new")
+marksFromSelectedSubject.append("DONE")
 
-for subject in data:
-    if subject == answerSubject['subject']:
-        for mark in data[answerSubject['subject']]:
-            marksFromSelectedSubject.append(mark)
+def renderList(marksFromSelectedSubject):
+    for subject in data:
+        if subject == answerSubject['subject']:
+            for mark in data[answerSubject['subject']]:
+                marksFromSelectedSubject.append(mark)
 
 
-questions = [
-    inquirer.List(
-        name = "mark",
-        message="Znamky",
-        choices = marksFromSelectedSubject,
-    ),
-]
+    questions = [
+        inquirer.List(
+            name = "mark",
+            message="Znamky",
+            choices = marksFromSelectedSubject,
+        ),
+    ]
 
-answerMark = inquirer.prompt(questions)
+    answerMark = inquirer.prompt(questions)
+    return(answerMark)
 
-print(answerSubject['subject'])
-print(answerMark['mark'])
+while True:
+    answerMark = renderList(marksFromSelectedSubject)
+    if answerMark["mark"] != "DONE":
+
+
+        i: int = 0
+        newMark = []
+        if answerMark["mark"] == 'add new':
+            nazev = f"added{i}"
+            i: int = i + 1
+            znamka: float = float(input("Znamka: "))
+            vaha: int = int(input("Vaha: "))
+
+        markList = {
+            'nazev': nazev,
+            'znamka': znamka,
+            'vaha': vaha
+        } 
+
+        marksFromSelectedSubject.append(markList)
+
+        answerMark = renderList(marksFromSelectedSubject)
+    else:
+        exit()
+        print(answerSubject['subject'])
+        pprint.pprint(answerMark['mark'])
+
+

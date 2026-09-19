@@ -6,22 +6,57 @@ import json
 import requests
 import getpass
 
+def renderList(marksFromSelectedSubject):
 
-##momentalne nemam znamky fetchujeme prefiled json
-#user = input('Username: ')
+    questions = [
+        inquirer.List(
+            name = "mark",
+            message="Znamky",
+            choices = marksFromSelectedSubject,
+        ),
+    ]
 
-#password = getpass.getpass("Password: ")
+    answerMark = inquirer.prompt(questions)
+    return(answerMark)
+
+def diametrCalculator(marksFromSelectedSubject):
+
+
+
+    for item in marksFromSelectedSubject:
+        print(item)
+        for var in item:
+            """
+            if var == "znamka":
+                znamka: float = item["znamka"]
+            if var == "vaha":
+                vaha: int = item["vaha"]
+            if znamka in locals() and vaha in locals():
+                markList = {
+                    'znamka': znamka,
+                    'vaha': vaha
+                }
+        if markList in locals():
+            pprint.pprint(markList)
+            """
+
+
+user = input('Username: ')
+
+password = getpass.getpass("Password: ")
 
 
 
 
-#data = get_marks(user, password)
+data = get_marks(user, password)
+
+pprint.pprint(data)
 
 #################################################
-
+"""
 with open('core/subjects.json', 'r', encoding='utf-8') as file:
     data = json.load(file)
-
+"""
 subjects = []
 i: int = 0
 
@@ -47,20 +82,8 @@ for subject in data:
         for mark in data[answerSubject['subject']]:
             marksFromSelectedSubject.append(mark)
 
-def renderList(marksFromSelectedSubject):
 
-
-
-    questions = [
-        inquirer.List(
-            name = "mark",
-            message="Znamky",
-            choices = marksFromSelectedSubject,
-        ),
-    ]
-
-    answerMark = inquirer.prompt(questions)
-    return(answerMark)
+#diametrCalculator(marksFromSelectedSubject)
 
 while True:
     answerMark = renderList(marksFromSelectedSubject)
@@ -83,6 +106,5 @@ while True:
         } 
 
         marksFromSelectedSubject.append(markList)
-
 
 

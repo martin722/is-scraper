@@ -52,11 +52,12 @@ def get_marks(user, password):
 
 
     if response.ok:
+        SubjectMarksCount = []
         soup = BeautifulSoup(response.text, 'html.parser')
     
 
         subjects = soup.find_all('h3', class_=False)
-        marks = soup.find_all('div', class_='ob')
+        marks = soup.find_all('div', class_='znamka-v')
         subjectsRow = soup.find_all('div', class_='predmet-radek')
         subjectsCount = len(subjectsRow)
         marksText = []
@@ -68,8 +69,10 @@ def get_marks(user, password):
         g = 0
         final = {}
         for row in subjectsRow:
-            pocet = len(row.find_all("div", class_="ob"))
-            radekSubject = row.select_one('div.predmet-radek h3')
+            #print(row)
+            pocet = len(row.find_all("div", class_="obal"))
+            radekSubject = row.select_one('h3')
+            subject_name = radekSubject.text.strip()
 
             #################
             ## NAZEV PREDMETU
@@ -77,9 +80,9 @@ def get_marks(user, password):
             #####################################################
             #### je to only prep pro json pro beta test uncomment 
         
-            # print('')
-            # print(Fore.BLUE + Back.BLACK + radekSubject.text + Style.RESET_ALL)
-            # print('')
+            #print('')
+            #print(Fore.BLUE + Back.BLACK + radekSubject.text + Style.RESET_ALL)
+            #print('')
             ###################################################
 
             ################
@@ -98,7 +101,7 @@ def get_marks(user, password):
                 ##################################################
                 #### je to only prep pro json pro beta test uncomment 
                 
-                # print(Fore.GREEN + Back.BLACK + caption + '  ' + marksText[a] + '  ' + str(vaha) + Style.RESET_ALL)
+                #print(Fore.GREEN + Back.BLACK + caption + '  ' + marksText[a] + '  ' + str(vaha) + Style.RESET_ALL)
 
                 ##################################################
 
@@ -107,7 +110,7 @@ def get_marks(user, password):
                 ##########################
                 ## PRIPRAVA ARRAY PRO JSON
 
-                if marksText[a].find('-') == True:
+                if '-' in marksText[a]:
                     marksText[a] = re.sub('-','',marksText[a])
                     marksText[a] = int(marksText[a]) + 0.5
             
@@ -120,7 +123,7 @@ def get_marks(user, password):
                 #final[radekSubject.text]['znamka'] = float(marksText[a])
                 #final[radekSubject.text]['vaha'] = str(vaha)
 
-                final.setdefault(radekSubject.text, []).append({"nazev": str(caption), "znamka": float(marksText[a]), "vaha": str(vaha) })
+                final.setdefault(radekSubject.text, []).append({"nazev": str(caption), "znamka": str(marksText[a]), "vaha": str(vaha) })
 
                 a = a+1
                 g = g+1
@@ -132,8 +135,8 @@ def get_marks(user, password):
             ##################################################
             #### je to only prep pro json pro beta test uncomment 
 
-            # print('')
-            # print(Fore.RED + Back.BLACK + "Pocet znamek " + str(pocet) + Style.RESET_ALL)
+            #print('')
+            #print(Fore.RED + Back.BLACK + "Pocet znamek " + str(pocet) + Style.RESET_ALL)
         
             ##################################################
 
@@ -141,12 +144,12 @@ def get_marks(user, password):
 
             ###################
             ## ZAPIS DO JSONU
-            SubjectMarksCount = []
-            SubjectMarksCount = (row.append(f" - {subject[1]}: {pocet} "))
+            
+            SubjectMarksCount.append(f"{subject_name}: {pocet}")
         jsonString = json.dumps(final, ensure_ascii=False, indent=4)
 
-#        with open ("subjects.json", "w", encoding='utf-8') as f:
-#            f.write(jsonString)
+        with open ("subjects.json", "w", encoding='utf-8') as f:
+            f.write(jsonString)
         return(jsonString)
             ####################
 

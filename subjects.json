@@ -1,1 +1,16 @@
-{}
+{
+    "Matematika": [
+        {
+            "nazev": "řez jehlanem",
+            "znamka": "1 \n\n\n\nN\n15.9.2026",
+            "vaha": "20"
+        }
+    ],
+    "Administrace serverových systémů": [
+        {
+            "nazev": "DU - první virt",
+            "znamka": "1 \n\n\n\nN\n15.9.2026",
+            "vaha": "20"
+        }
+    ]
+}

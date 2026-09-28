@@ -24,21 +24,18 @@ def diametrCalculator(marksFromSelectedSubject):
 
 
     for item in marksFromSelectedSubject:
-        print(item)
-        for var in item:
-            """
-            if var == "znamka":
-                znamka: float = item["znamka"]
-            if var == "vaha":
-                vaha: int = item["vaha"]
-            if znamka in locals() and vaha in locals():
-                markList = {
-                    'znamka': znamka,
-                    'vaha': vaha
-                }
-        if markList in locals():
+        if "znamka" in item and "vaha" in item:
+            znamka = float(item["znamka"])
+            vaha = int(item["vaha"])
+            
+            markList = {
+                'znamka': znamka,
+                'vaha': vaha
+            }
+
             pprint.pprint(markList)
-            """
+
+
 
 
 user = input('Username: ')
@@ -50,7 +47,7 @@ password = getpass.getpass("Password: ")
 
 data = get_marks(user, password)
 
-pprint.pprint(data)
+#pprint.pprint(data)
 
 #################################################
 """
@@ -83,9 +80,10 @@ for subject in data:
             marksFromSelectedSubject.append(mark)
 
 
-#diametrCalculator(marksFromSelectedSubject)
+
 
 while True:
+    diametrCalculator(marksFromSelectedSubject)
     answerMark = renderList(marksFromSelectedSubject)
     if answerMark["mark"] == "DONE":
         exit()

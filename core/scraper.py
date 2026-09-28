@@ -57,7 +57,8 @@ def get_marks(user, password):
     
 
         subjects = soup.find_all('h3', class_=False)
-        marks = soup.find_all('div', class_='znamka-v')
+        marks = soup.find_all('div', class_='cislovka')
+        #print(marks)
         subjectsRow = soup.find_all('div', class_='predmet-radek')
         subjectsCount = len(subjectsRow)
         marksText = []
@@ -150,6 +151,7 @@ def get_marks(user, password):
 
         with open ("subjects.json", "w", encoding='utf-8') as f:
             f.write(jsonString)
-        return(jsonString)
+        pprint(final)
+        return(final)
             ####################
 

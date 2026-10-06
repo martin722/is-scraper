@@ -57,7 +57,7 @@ def get_marks(user, password):
     
 
         subjects = soup.find_all('h3', class_=False)
-        marks = soup.find_all('div', class_='cislovka')
+        marks = soup.find_all('div', attrs={"data-testid": "subjectview-grade-value"})
         #print(marks)
         subjectsRow = soup.find_all('div', class_='predmet-radek')
         subjectsCount = len(subjectsRow)
@@ -71,7 +71,7 @@ def get_marks(user, password):
         final = {}
         for row in subjectsRow:
             #print(row)
-            pocet = len(row.find_all("div", class_="obal"))
+            pocet = len(row.find_all("div", class_="znamka-v"))
             radekSubject = row.select_one('h3')
             subject_name = radekSubject.text.strip()
 
@@ -120,9 +120,6 @@ def get_marks(user, password):
                 if radekSubject.text not in final:
                     final[radekSubject.text] = []
 
-                #final[radekSubject.text] = {'nazev': str(caption)}
-                #final[radekSubject.text]['znamka'] = float(marksText[a])
-                #final[radekSubject.text]['vaha'] = str(vaha)
 
                 final.setdefault(radekSubject.text, []).append({"nazev": str(caption), "znamka": str(marksText[a]), "vaha": str(vaha) })
 

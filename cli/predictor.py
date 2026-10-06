@@ -21,19 +21,33 @@ def renderList(marksFromSelectedSubject):
 
 def diametrCalculator(marksFromSelectedSubject):
 
-
-
+    markList = []
+    midCount : float = 0
+    vahaSum : float = 0
+    topFractionMidCount : float = 0
     for item in marksFromSelectedSubject:
-        if "znamka" in item and "vaha" in item:
-            znamka = float(item["znamka"])
-            vaha = int(item["vaha"])
+
+        if isinstance(item, dict):
+            znamka = float(item['znamka'])
+            vaha = int(item['vaha'])
+            midCount = znamka * vaha
+            topFractionMidCount += midCount
+            vahaSum += vaha
             
-            markList = {
+            markList.append({
                 'znamka': znamka,
                 'vaha': vaha
-            }
+            })
 
-            pprint.pprint(markList)
+    diametr = topFractionMidCount / vahaSum
+    try:
+      originalDiametr
+    except:
+      originalDiametr = diametr
+    else:
+      pass
+    pprint.pprint("Průměr: " . round(diametr, 2))
+
 
 
 

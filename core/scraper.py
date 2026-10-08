@@ -148,7 +148,7 @@ def get_marks(user, password):
 
         with open ("subjects.json", "w", encoding='utf-8') as f:
             f.write(jsonString)
-        pprint(final)
+        #pprint(final)
         return(final)
             ####################
 

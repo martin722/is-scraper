@@ -19,7 +19,12 @@ def renderList(marksFromSelectedSubject):
     answerMark = inquirer.prompt(questions)
     return(answerMark)
 
+
+OriginalDiametr = None
+
 def diametrCalculator(marksFromSelectedSubject):
+
+    global OriginalDiametr
 
     markList = []
     midCount : float = 0
@@ -40,16 +45,17 @@ def diametrCalculator(marksFromSelectedSubject):
             })
 
     diametr = topFractionMidCount / vahaSum
-    try:
-      originalDiametr
-    except:
-      originalDiametr = diametr
+
+    if OriginalDiametr is None:
+        OriginalDiametr = diametr
     else:
-      pass
-    pprint.pprint("Průměr: " . round(diametr, 2))
+        pprint.pprint("originalni Průměr: " + str(round(OriginalDiametr, 2)))
+    pprint.pprint("Průměr: " + str(round(diametr, 2)))
+
+    
 
 
-
+OriginalDiametr = None
 
 
 user = input('Username: ')
@@ -70,7 +76,6 @@ with open('core/subjects.json', 'r', encoding='utf-8') as file:
 """
 subjects = []
 i: int = 0
-
 for key in data:
     subjects.append(key)
 
@@ -98,11 +103,12 @@ for subject in data:
 
 while True:
     diametrCalculator(marksFromSelectedSubject)
+    #pprint.pprint("Originalni průměr: " + str(round(diametr, 2)))
     answerMark = renderList(marksFromSelectedSubject)
     if answerMark["mark"] == "DONE":
         exit()
-        print(answerSubject['subject'])
-        pprint.pprint(answerMark['mark'])
+        # print(answerSubject['subject'])
+        # pprint.pprint(answerMark['mark'])
 
 
     if answerMark["mark"] == 'add new':
